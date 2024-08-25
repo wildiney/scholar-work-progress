@@ -1,4 +1,4 @@
-import Progressbar from './components/progressbar'
+import Progressbar from './components/Progressbar'
 
 function App () {
 
