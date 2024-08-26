@@ -1,4 +1,4 @@
-function Delivery ({ date, countdown }: { date: Date, countdown: number }) {
+const Delivery = ({ date, countdown }: { date: Date, countdown: number }) => {
   return (
     <div className='flex w-full gap-4 mt-6'>
       <p className='w-full text-xl text-center '>
