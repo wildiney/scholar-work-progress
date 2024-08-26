@@ -13,7 +13,7 @@ export default defineConfig({
         name: 'Scholar Work Progress',
         short_name: 'SW Progress',
         description: 'Task evolution monitoring',
-        theme_color: '#ffffff',
+        theme_color: '#4a044e',
         icons: [
           {
             src: 'icons/icon-192x192.png',
