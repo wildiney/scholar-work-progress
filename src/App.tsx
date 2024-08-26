@@ -5,26 +5,29 @@ import Progressbar from './components/Progressbar'
 import ProgressDetails from './components/ProgressDetails'
 import Titles from './components/Titles'
 import DISCIPLINES from './data/disciplines.json'
+import useCountdown from './hooks/useCountdown'
 
 function App () {
-  const totalQuestions = Object.values(DISCIPLINES).reduce((sum, discipline) => {
-    return sum + discipline.questions
-  }, 0)
+  const totalQuestions = Object.values(DISCIPLINES).reduce(
+    (sum, discipline) => {
+      return sum + discipline.questions
+    },
+    0
+  )
 
-  const totalAnswereds = Object.values(DISCIPLINES).reduce((sum, discipline) => {
-    return sum + discipline.answereds
-  }, 0)
+  const totalAnswereds = Object.values(DISCIPLINES).reduce(
+    (sum, discipline) => {
+      return sum + discipline.answereds
+    },
+    0
+  )
 
-  const questionsToBeDone = totalQuestions - totalAnswereds
+  const totalQuestionsToBeDone = totalQuestions - totalAnswereds
 
   const deliveryDate = new Date(2024, 8, 2)
-  const today = new Date()
-  const differenceInMilliseconds = deliveryDate.getTime() < today.getTime() ? 0 : deliveryDate.getTime() - today.getTime()
-  const countdown = Math.ceil(differenceInMilliseconds / (1000 * 60 * 60 * 24))
+  const countdown = useCountdown(deliveryDate)
 
-  const exercisesByDay = (questionsToBeDone / (countdown - 1)).toFixed(2)
-
-
+  const exercisesByDay = (totalQuestionsToBeDone / (countdown - 1)).toFixed(2)
 
   return (
     <>
@@ -44,7 +47,6 @@ function App () {
             {totalAnswereds}/{totalQuestions}
           </span>
         </div>
-
 
         <hr className='my-10 border-fuchsia-200' />
 
