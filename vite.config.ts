@@ -11,6 +11,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      workbox: {
+        globPatterns: [], // Nenhum arquivo será pré-cachado
+      },
+      injectRegister: false,
       manifest: {
         name: 'Scholar Work Progress',
         short_name: 'SW Progress',
