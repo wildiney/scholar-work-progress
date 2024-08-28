@@ -12,9 +12,26 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       workbox: {
-        globPatterns: [], // Nenhum arquivo será pré-cachado
+        // Desativar cache de navegação
+        runtimeCaching: [
+          {
+            urlPattern: /^https:\/\/.*\.(?:html|css|js|json|png|jpg|jpeg|svg|ico|webp|avif|gif|tiff)$/,
+            handler: 'NetworkFirst', // Sempre buscar na rede primeiro
+            options: {
+              cacheName: 'dynamic-resources',
+              expiration: {
+                maxEntries: 0, // Desativa cache para esse padrão
+              },
+            },
+          },
+        ],
+        // Desabilitar precaching
+        globPatterns: [],
+        cleanupOutdatedCaches: true, // Limpar caches antigos
       },
-      injectRegister: false,
+      devOptions: {
+        enabled: true, // Ativar o PWA em modo de desenvolvimento
+      },
       manifest: {
         name: 'Scholar Work Progress',
         short_name: 'SW Progress',
