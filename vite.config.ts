@@ -58,11 +58,13 @@ export default defineConfig({
     setupFiles: './src/setupTests.ts',
     coverage: {
       provider: 'v8',
-      reporter: ['text', 'json', 'html'],
+      reporter: ['text', 'json', 'html', 'lcov'],
       exclude: [
         ...configDefaults.exclude,
         '**/e2e/**',
         '**/node_modules/**',
+        '**/dev-dist/**',
+        '**/dist/**',
         '**/postcss.config.js',
         '**/tailwind.config.js',
         '**/vite.config.ts',
