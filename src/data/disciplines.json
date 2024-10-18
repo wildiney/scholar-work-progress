@@ -1,26 +1,26 @@
 {
   "portuguese": {
-    "questions": 8,
-    "answereds": 3
+    "questions": 14,
+    "answereds": 0
   },
   "mathematics": {
     "questions": 9,
-    "answereds": 9
+    "answereds": 0
   },
   "history": {
     "questions": 8,
-    "answereds": 8
+    "answereds": 0
   },
   "geography": {
     "questions": 9,
-    "answereds": 9
+    "answereds": 0
   },
   "science": {
     "questions": 9,
-    "answereds": 9
+    "answereds": 0
   },
   "english": {
     "questions": 5,
-    "answereds": 5
+    "answereds": 0
   }
 }
