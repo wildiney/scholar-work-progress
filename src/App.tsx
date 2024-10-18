@@ -5,6 +5,7 @@ import Progressbar from './components/Progressbar'
 import ProgressDetails from './components/ProgressDetails'
 import Titles from './components/Titles'
 import DISCIPLINES from './data/disciplines.json'
+import DELIVERY_DATE from './data/delivery.json'
 import useCountdown from './hooks/useCountdown'
 
 function App () {
@@ -24,7 +25,7 @@ function App () {
 
   const totalQuestionsToBeDone = totalQuestions - totalAnswereds
 
-  const deliveryDate = new Date(2024, 8, 2)
+  const deliveryDate = new Date(DELIVERY_DATE.date.year, DELIVERY_DATE.date.month - 1, DELIVERY_DATE.date.day)
   const countdown = useCountdown(deliveryDate)
 
   const exercisesByDay = (totalQuestionsToBeDone / (countdown - 1)).toFixed(2)
